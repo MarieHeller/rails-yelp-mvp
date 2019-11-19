@@ -1,0 +1,19 @@
+<%  array = @restaurant.reviews.map(&:rating) %>
+<% sum = array.sum %>
+<% average_rating = (sum.to_f / array.length.to_f) %>
+
+<h1><%= @restaurant.name %> || <%= average_rating %>/5</h1>
+<h3><%= @restaurant.address %></h3>
+<p>Food: <%= @restaurant.category %></p>
+<p>Contact Details: <%= @restaurant.phone_number %></p>
+
+<%= link_to restaurants_path do %>
+<i class="fas fa-undo-alt"></i> Back
+<% end %>
+<br>
+
+<%= link_to new_restaurant_review_path(@restaurant) do %>
+<i class="fas fa-plus"></i> Add review
+<% end %>
+
+
